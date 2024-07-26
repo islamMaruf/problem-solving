@@ -23,3 +23,29 @@ Output: 2
 Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
  */
 
+var mySqrt = function (target) {
+
+    if (target < 2) {
+        return target;
+    }
+    let start = 0;
+    let end = target;
+
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        let square = mid * mid;
+
+        if (square == target) {
+            return mid;
+        }
+        if (square < target) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+    return end;
+
+};
+
+console.log(mySqrt(8))
